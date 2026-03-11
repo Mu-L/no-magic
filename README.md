@@ -378,6 +378,18 @@ Structured tracks for different goals — 6 learning tracks ranging from weekend
 
 See [`LEARNING_PATH.md`](LEARNING_PATH.md) for the full guide.
 
+### Offline Book (EPUB)
+
+All 41 scripts compiled into a single EPUB with table of contents, thesis excerpts, tradeoff sections, and full annotated source. Readable on any e-reader, tablet, or phone.
+
+```bash
+# Requires pandoc: brew install pandoc (macOS) or apt install pandoc
+bash scripts/generate-epub.sh
+# Output: build/no-magic.epub
+```
+
+A pre-built copy is included in every [release](https://github.com/Mathews-Tom/no-magic/releases).
+
 ## Translations
 
 Comment translations for 6 languages: Spanish, Portuguese, Chinese, Japanese, Korean, and Hindi. The code stays in English — only comments, docstrings, section headers, and print statements are translated.

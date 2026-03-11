@@ -152,8 +152,8 @@ add_chapter() {
 # --- Collect scripts per tier ---
 
 # Tier directories and their part titles
-declare -a TIERS=("01-foundations" "02-alignment" "03-systems")
-declare -a PARTS=("Part I: Foundations" "Part II: Alignment & Training Techniques" "Part III: Systems & Inference")
+declare -a TIERS=("01-foundations" "02-alignment" "03-systems" "04-agents")
+declare -a PARTS=("Part I: Foundations" "Part II: Alignment & Training Techniques" "Part III: Systems & Inference" "Part IV: Agents & Planning")
 
 for i in "${!TIERS[@]}"; do
     tier="${TIERS[$i]}"
