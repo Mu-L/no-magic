@@ -214,12 +214,15 @@ Every script in this repository is an **executable proof** that these algorithms
 <img src="videos/previews/microreact.gif" width="280"/><br/>
 <sub>Thought → Action → Observation</sub></td>
 <td align="center"><a href="04-agents/microbandit.py"><b>Multi-Armed Bandits</b></a><br/>
+<img src="videos/previews/microbandit.gif" width="280"/><br/>
 <sub>ε-greedy vs UCB1 vs Thompson Sampling</sub></td>
 </tr>
 <tr>
 <td align="center"><a href="04-agents/microminimax.py"><b>Minimax + Alpha-Beta</b></a><br/>
+<img src="videos/previews/microminimax.gif" width="280"/><br/>
 <sub>Adversarial search with pruning</sub></td>
 <td align="center"><a href="04-agents/micromemory.py"><b>Memory-Augmented Network</b></a><br/>
+<img src="videos/previews/micromemory.gif" width="280"/><br/>
 <sub>Differentiable read/write heads</sub></td>
 <td></td>
 </tr>
