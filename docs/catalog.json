@@ -288,6 +288,13 @@
   },
   {
     "tier": "03-systems",
+    "name": "microturboquant",
+    "display": "Turboquant",
+    "thesis": "Why rotating a vector before quantizing it works -- random rotation makes coordinates",
+    "lines": 364
+  },
+  {
+    "tier": "03-systems",
     "name": "microvectorsearch",
     "display": "Vector Search",
     "thesis": "Vector search from first principles: exact brute-force nearest neighbors vs approximate",

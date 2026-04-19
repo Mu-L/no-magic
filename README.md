@@ -4,7 +4,7 @@
 
 ![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue?style=flat-square&logo=python&logoColor=white)
 ![License: MIT](https://img.shields.io/github/license/no-magic-ai/no-magic?style=flat-square)
-![Algorithms](https://img.shields.io/badge/algorithms-47-orange?style=flat-square)
+![Algorithms](https://img.shields.io/badge/algorithms-48-orange?style=flat-square)
 ![Version](https://img.shields.io/badge/version-v2.0.0-blue?style=flat-square)
 ![Zero Dependencies](https://img.shields.io/badge/dependencies-zero-brightgreen?style=flat-square)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)
@@ -135,7 +135,7 @@ Every script in this repository is an **executable proof** that these algorithms
 </details>
 
 <details>
-<summary><h3>03 — Systems & Inference (16 scripts)</h3></summary>
+<summary><h3>03 — Systems & Inference (17 scripts)</h3></summary>
 <table>
 <tr>
 <td align="center"><a href="03-systems/microattention.py"><b>Attention Mechanism</b></a><br/>
@@ -196,7 +196,9 @@ Every script in this repository is an **executable proof** that these algorithms
 <td align="center"><a href="03-systems/microroofline.py"><b>Roofline Model</b></a><br/>
 <img src="https://raw.githubusercontent.com/no-magic-ai/no-magic-viz/main/previews/microroofline.gif" width="280"/><br/>
 <sub>SISO → MIMO hardware utilization</sub></td>
-<td></td>
+<td align="center"><a href="03-systems/microturboquant.py"><b>TurboQuant</b></a><br/>
+<img src="https://raw.githubusercontent.com/no-magic-ai/no-magic-viz/main/previews/microturboquant.gif" width="280"/><br/>
+<sub>Data-oblivious quantization via random rotation</sub></td>
 <td></td>
 </tr>
 </table>
@@ -271,7 +273,7 @@ Methods for steering, fine-tuning, and aligning models after pretraining. LoRA, 
 
 See [`02-alignment/README.md`](02-alignment/README.md) for the full algorithm list, timing data, and roadmap.
 
-### 03 — Systems & Inference (16 scripts)
+### 03 — Systems & Inference (17 scripts)
 
 The engineering that makes models fast, small, and deployable. Attention variants, Flash Attention, KV-cache, PagedAttention, RoPE, quantization, beam search, checkpointing, parallelism, SSMs, vector search, BM25, speculative decoding, complex SSM equivalence, discretization methods, and roofline analysis.
 
@@ -335,13 +337,13 @@ Each tier's README has the full algorithm list with measured run times for that 
 
 ### Challenges
 
-"Predict the behavior" exercises that test your understanding of the algorithms. 20 challenges covering all 4 tiers — attention, GPT, GAN, DPO, optimizers, discretization, complex SSMs, roofline, tokenizer, embedding, RNN, VAE, LoRA, PPO, MoE, KV-cache, quantization, SSM, MCTS, and ReAct. Each challenge presents a code snippet and asks you to reason about the output before running it.
+"Predict the behavior" exercises that test your understanding of the algorithms. 21 challenges covering all 4 tiers — attention, GPT, GAN, DPO, optimizers, discretization, complex SSMs, roofline, tokenizer, embedding, RNN, VAE, LoRA, PPO, MoE, KV-cache, quantization, TurboQuant, SSM, MCTS, and ReAct. Each challenge presents a code snippet and asks you to reason about the output before running it.
 
 See [`challenges/README.md`](challenges/README.md) for the full challenge set.
 
 ### Flashcards
 
-Anki-compatible flashcard decks for spaced repetition review. 182 cards across 4 tiers (foundations, alignment, systems, agents), covering key concepts, equations, and design decisions from every script.
+Anki-compatible flashcard decks for spaced repetition review. 190 cards across 4 tiers (foundations, alignment, systems, agents), covering key concepts, equations, and design decisions from every script.
 
 ```bash
 # Generate the Anki deck
@@ -358,7 +360,7 @@ See [`LEARNING_PATH.md`](LEARNING_PATH.md) for the full guide.
 
 ### Offline Book (EPUB)
 
-All 47 scripts compiled into a single EPUB with table of contents, thesis excerpts, tradeoff sections, and full annotated source. Readable on any e-reader, tablet, or phone.
+All 48 scripts compiled into a single EPUB with table of contents, thesis excerpts, tradeoff sections, and full annotated source. Readable on any e-reader, tablet, or phone.
 
 ```bash
 # Requires pandoc: brew install pandoc (macOS) or apt install pandoc
@@ -437,6 +439,7 @@ graph LR
     CSSM["Complex SSM"]
     DISC["Discretize"]
     ROOF["Roofline"]
+    TURBO["TurboQuant"]
   end
 
   %% --- Foundation internals ---
@@ -481,6 +484,10 @@ graph LR
   %% --- Cross-tier into QLoRA ---
   QUANT --> QLORA
 
+  %% --- Quantization family ---
+  QUANT --> TURBO
+  EMB -.-> TURBO
+
   %% --- Foundations / Alignment → Agents ---
   REINF --> REACT
   GPT --> REACT
@@ -488,7 +495,7 @@ graph LR
   %% --- Apply styles ---
   class TOK,EMB,OPT,RNN,CONV,GPT,BERT,RAG,DIFF,VAE,GAN foundations
   class BN,DROP,LORA,QLORA,DPO,REINF,PPO,GRPO,MOE alignment
-  class ATTN,FLASH,ROPE,KV,PAGED,QUANT,BEAM,CKPT,PAR,SSM,CSSM,DISC,ROOF systems
+  class ATTN,FLASH,ROPE,KV,PAGED,QUANT,BEAM,CKPT,PAR,SSM,CSSM,DISC,ROOF,TURBO systems
   class MCTS,REACT agents
 ```
 
