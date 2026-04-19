@@ -169,35 +169,42 @@ Making models fast and small. This track covers every major inference optimizati
 - **Time:** 40 min
 - [ ] Completed
 
-**7. `03-systems/microbeam.py`**
+**7. `03-systems/microturboquant.py`**
+- **You'll learn:** How a single random rotation applied before scalar quantization gives data-oblivious vector compression with provable inner-product preservation — no calibration data required, unlike the methods in `microquant`.
+- **Builds on:** `microquant` (scalar quantization mechanics), `microembedding` (vectors as the object being quantized).
+- **Key moment:** The rotated-coordinate histogram — raw embedding coordinates have irregular, vector-specific shapes; after one shared random rotation, every vector's coordinates concentrate into the same Beta-shaped marginal, which is what makes a single universal 1-D quantizer optimal for all of them.
+- **Time:** 45 min
+- [ ] Completed
+
+**8. `03-systems/microbeam.py`**
 - **You'll learn:** How beam search, top-k, top-p (nucleus), and temperature sampling explore the output distribution differently, producing outputs that range from deterministic to creative.
 - **Builds on:** `microgpt` (autoregressive token generation).
 - **Key moment:** Comparing beam search (finds the most probable sequence) against nucleus sampling (samples from the dynamic top-p portion of the distribution) on the same prompt — same model, completely different outputs.
 - **Time:** 35 min
 - [ ] Completed
 
-**8. `03-systems/microssm.py`**
+**9. `03-systems/microssm.py`**
 - **You'll learn:** How state-space models replace attention with a linear recurrence that processes sequences in O(N) time, achieving transformer-competitive quality without the quadratic attention bottleneck.
 - **Builds on:** `microgpt` (sequence modeling baseline for comparison).
 - **Key moment:** The dual-mode computation — the same SSM parameters support both a parallel convolution mode (fast training) and a sequential recurrence mode (fast inference), unified by the same math.
 - **Time:** 35 min
 - [ ] Completed
 
-**9. `03-systems/microdiscretize.py`**
+**10. `03-systems/microdiscretize.py`**
 - **You'll learn:** How Euler, ZOH, and trapezoidal discretization turn continuous-time SSM equations into discrete recurrences, and why each method creates different stability properties and inductive biases.
 - **Builds on:** `microssm` (SSM recurrence mechanics).
 - **Key moment:** The stability table — Euler diverges at large delta while ZOH/trapezoidal remain bounded for any step size, because exp() maps the entire negative real line to (0,1).
 - **Time:** 40 min
 - [ ] Completed
 
-**10. `03-systems/microcomplexssm.py`**
+**11. `03-systems/microcomplexssm.py`**
 - **You'll learn:** How complex-valued SSM eigenvalues enable rotation (not just decay), why this is mathematically identical to applying data-dependent RoPE rotation matrices, and why real-only SSMs fail at parity.
 - **Builds on:** `microssm` (SSM state transitions), `microrope` (rotation matrices, helpful but not required).
 - **Key moment:** The equivalence proof — complex and real+RoPE forward passes produce identical outputs to floating-point precision, proving that complex multiply IS 2x2 rotation.
 - **Time:** 40 min
 - [ ] Completed
 
-**11. `03-systems/microroofline.py`**
+**12. `03-systems/microroofline.py`**
 - **You'll learn:** How the roofline model classifies operations as memory-bound or compute-bound, and why MIMO SSM state updates (matmul) outperform SISO (outer product) on GPUs despite doing 11x more FLOPs.
 - **Builds on:** `microssm` (SSM state updates), `microflash` (hardware-aware algorithm design, helpful but not required).
 - **Key moment:** The ASCII roofline plot — seeing SISO at AI≈2 (0.7% GPU utilization) versus MIMO at AI≈32 (shifting toward compute-bound) makes the hardware argument visceral.
@@ -374,7 +381,8 @@ KV caching, memory management, quantization, and decoding strategies.
 | 24 | `03-systems/microkv.py` | 35 min | - [ ] |
 | 25 | `03-systems/micropaged.py` | 40 min | - [ ] |
 | 26 | `03-systems/microquant.py` | 40 min | - [ ] |
-| 27 | `03-systems/microbeam.py` | 35 min | - [ ] |
+| 27 | `03-systems/microturboquant.py` | 45 min | - [ ] |
+| 28 | `03-systems/microbeam.py` | 35 min | - [ ] |
 
 ### Milestone 12: Advanced Systems (1.5 hrs)
 
@@ -382,9 +390,9 @@ State-space models, gradient checkpointing, and parallelism — the frontier of 
 
 | # | Script | Time | Checkbox |
 |---|--------|------|----------|
-| 28 | `03-systems/microssm.py` | 35 min | - [ ] |
-| 29 | `03-systems/microcheckpoint.py` | 30 min | - [ ] |
-| 30 | `03-systems/microparallel.py` | 30 min | - [ ] |
+| 29 | `03-systems/microssm.py` | 35 min | - [ ] |
+| 30 | `03-systems/microcheckpoint.py` | 30 min | - [ ] |
+| 31 | `03-systems/microparallel.py` | 30 min | - [ ] |
 
 ### Milestone 13: Mamba-3 Deep Dive (2 hrs)
 
@@ -392,9 +400,9 @@ The SSM frontier — discretization methods, complex eigenvalue dynamics, and ha
 
 | # | Script | Time | Checkbox |
 |---|--------|------|----------|
-| 31 | `03-systems/microdiscretize.py` | 40 min | - [ ] |
-| 32 | `03-systems/microcomplexssm.py` | 40 min | - [ ] |
-| 33 | `03-systems/microroofline.py` | 40 min | - [ ] |
+| 32 | `03-systems/microdiscretize.py` | 40 min | - [ ] |
+| 33 | `03-systems/microcomplexssm.py` | 40 min | - [ ] |
+| 34 | `03-systems/microroofline.py` | 40 min | - [ ] |
 
 ### Milestone 14: Agent Algorithms (3 hrs)
 
@@ -402,8 +410,8 @@ How agents search and reason — tree search for planning and tool-augmented rea
 
 | # | Script | Time | Checkbox |
 |---|--------|------|----------|
-| 34 | `04-agents/micromcts.py` | 90 min | - [ ] |
-| 35 | `04-agents/microreact.py` | 90 min | - [ ] |
+| 35 | `04-agents/micromcts.py` | 90 min | - [ ] |
+| 36 | `04-agents/microreact.py` | 90 min | - [ ] |
 
 ---
 
